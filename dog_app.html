@@ -14068,11 +14068,10 @@ in <code>dog_files_short</code> the percentage was <em> 100% </em></p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>The CNN architecture is composed of two parts, feature extraction and classification. The feature extraction is composed by a series of convolutional layers and the classification by a series of fully connected layers (dense layers) which will used the features extracted by the different convoluational layers to classifier the current input.</p>
-<p>My final architecture has 5 convolutional layers and 4 fully connected layers.I started with 3 conv and 3 dense layers but as I was observing my training and validation loss, I increase and got to this final architecture.</p>
-<p>During the forward trip, the tensor image will go trough 5 convolutional layers which will create respectively 16, 32, 64, 128 features map and through 5 maxpolling layers which will reduce the image dimensionality respectively to 112, 56, 28, 14, 7, while extracting the most prominent information. I used the relu activation function on  the output of each convolutional layer.</p>
-<p>Afther that we feed the result to 4 dense layers for the classification part. this time we will use dropout in between the dense layers to prevent overfitting.</p>
-<p>Note in 58 we flatten output of the 5 convolutional layers so it can be feed to the first linear layer.</p>
+<p>The final CNN architecture is composed of a series of 5 convolutional layers and max pooling layers followed by 4 fully connected layers.</p>
+<p>I started with 3 conv and 3 dense layers but as I was observing my training and validation loss, and also the result on the test data, I gradually increase and got to this final architecture. Obviously it is about finding the architecture that allows you to reach the fixed goal. In this case it was an accuracy of 10% or more.</p>
+<p>During the forward trip, the tensor image will go trough 5 convolutional layers which will create respectively 16, 32, 64, 128 features map and through 5 maxpolling layers which will reduce the image dimensionality respectively to 112, 56, 28, 14, 7, while extracting the most prominent information. I used the relu activation function on  the output of each convolutional layer to introduce non linearity.</p>
+<p>After that I feed the flatten the output of the last conv/pool layers to 4 dense layers for the classification purpose, this time I will use dropout in between the dense layers to prevent overfitting.</p>
 
 </div>
 </div>
